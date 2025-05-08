@@ -1,0 +1,43 @@
+name: Tests
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  checks: write
+  pull-requests: write
+  contents: write
+
+jobs:
+
+  render-tests:
+    name: Render tests
+    env:
+      SPLIT_COUNT: 1
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest]
+        split: [0]
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: '.nvmrc'
+      - name: install CJK fonts for local ideographs render tests
+        if: runner.os == 'Linux'
+        run: sudo apt install fonts-noto-cjk
+      - run: npm ci
+      - name: Start display server
+        if: runner.os == 'Linux'
+        run: nohup Xvfb &
+          echo "DISPLAY=:0" >> $GITHUB_ENV
+      - name: Run Render tests
+        run: npm run test
+        env:
+          CURRENT_SPLIT_INDEX: ${{ matrix.split }}
