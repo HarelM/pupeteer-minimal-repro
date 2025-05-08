@@ -16,12 +16,12 @@ jobs:
   render-tests:
     name: Render tests
     env:
-      SPLIT_COUNT: 1
+      SPLIT_COUNT: 3
     strategy:
       fail-fast: false
       matrix:
         os: [ubuntu-latest]
-        split: [0]
+        split: [0, 1, 2]
     runs-on: ${{ matrix.os }}
     timeout-minutes: 120
     steps:
