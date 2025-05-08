@@ -991,7 +991,7 @@ async function executeRenderTests() {
         ]});
 
     const mount = st({
-        path: 'test/integration/assets',
+        path: 'assets',
         cors: true,
         passthrough: true,
     });
