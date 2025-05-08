@@ -1,0 +1,6 @@
+node_modules
+coverage
+junit.xml
+report.html
+actual.png
+diff.png

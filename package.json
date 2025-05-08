@@ -1,0 +1,23 @@
+{
+  "name": "pupeteer-minimal-repro",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "node --no-warnings --loader ts-node/esm ./run_render_tests.ts"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "glob": "^11.0.2",
+    "junit-report-builder": "^5.1.1",
+    "maplibre-gl": "^5.5.0",
+    "monocart-coverage-reports": "^2.12.4",
+    "pixelmatch": "^7.1.0",
+    "pngjs": "^7.0.0",
+    "puppeteer": "^24.8.1",
+    "st": "^3.0.1",
+    "ts-node": "^10.9.2"
+  }
+}
