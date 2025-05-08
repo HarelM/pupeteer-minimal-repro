@@ -241,6 +241,9 @@ function getTestStyles(options: RenderOptions, directory: string, port: number):
             //localizeURLs(style, port, path.join(__dirname, '../'));
             return true;
         });
+    for (let i = 0; i < 1000; i++) {
+        sequence.push(sequence[0]);
+    }
     return sequence;
 }
 
