@@ -10,6 +10,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@maplibre/maplibre-gl-style-spec": "^23.2.2",
     "glob": "^11.0.2",
     "junit-report-builder": "^5.1.1",
     "maplibre-gl": "^5.5.0",

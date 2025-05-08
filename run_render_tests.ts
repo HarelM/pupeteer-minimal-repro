@@ -8,7 +8,7 @@ import {globSync} from 'glob';
 import http from 'http';
 import puppeteer, {type Page, type Browser} from 'puppeteer';
 import {CoverageReport} from 'monocart-coverage-reports';
-//import {localizeURLs} from '../lib/localize-urls';
+import {localizeURLs} from './localize-urls';
 import type {Map as MaplibreMap, CanvasSource, PointLike, StyleSpecification} from 'maplibre-gl';
 import junitReportBuilder, {type TestSuite} from 'junit-report-builder';
 import type * as maplibreglModule from 'maplibre-gl';
@@ -238,12 +238,9 @@ function getTestStyles(options: RenderOptions, directory: string, port: number):
                 console.log(`* skipped ${test.id}`);
                 return false;
             }
-            //localizeURLs(style, port, path.join(__dirname, '../'));
+            localizeURLs(style, port, path.join(__dirname, '../'));
             return true;
         });
-    for (let i = 0; i < 1000; i++) {
-        sequence.push(sequence[0]);
-    }
     return sequence;
 }
 
